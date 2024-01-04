@@ -11,25 +11,25 @@ import (
 	"github.com/webteleport/utils"
 )
 
-// DefaultTimeout is the default dialing timeout for the UFO client.
+// DefaultTimeout is the default dialing timeout for the WTF client.
 var DefaultTimeout = 10 * time.Second
 
-// DefaultGcInterval is the default garbage collection interval for the UFO client.
+// DefaultGcInterval is the default garbage collection interval for the WTF client.
 var DefaultGcInterval = 5 * time.Second
 
 // DefaultGcRetry is the default garbage collection retry limit.
 var DefaultGcRetry int64 = 3
 
-// Serve starts a UFO server on the given station URL.
+// Serve starts a WTF server on the given relay URL.
 // GC: Automatically close the server when health check fails for the given times
 // - gc: health check interval interval (0 for disable)
 // - retry: Retry the health check for the given times
 // - timeout: Automatically close the client when dial timeouts
 // - quiet: Do not log the status of the server (false for loggy)
 // - persist: Automatically restart the server when it becomes unresponsive (0 for disable)
-func Serve(stationURL string, handler http.Handler) error {
-	// Parse the station URL and inject client info
-	u, err := createURLWithQueryParams(stationURL)
+func Serve(relay string, handler http.Handler) error {
+	// Parse the relay URL and inject client info
+	u, err := createURLWithQueryParams(relay)
 	if err != nil {
 		return err
 	}
@@ -94,7 +94,7 @@ func Serve(stationURL string, handler http.Handler) error {
 	}
 }
 
-// ServerConfig is the configuration for the UFO server.
+// ServerConfig is the configuration for the WTF server.
 type ServerConfig struct {
 	StationURL *url.URL
 	Handler    http.Handler
@@ -104,11 +104,11 @@ type ServerConfig struct {
 	Quiet      bool
 }
 
-// Serve starts a UFO server on the given station URL.
+// Serve starts a WTF server on the given relay URL.
 func ServeWithConfig(config *ServerConfig) error {
 	u := config.StationURL
 
-	// listen on the station URL with a timeout
+	// listen on the relay URL with a timeout
 	ln, err := listenWithTimeout(u.String(), config.Timeout)
 	if err != nil {
 		return fmt.Errorf("listen: %w", err)
