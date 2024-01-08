@@ -2,10 +2,12 @@ module github.com/webteleport/wtf
 
 go 1.21.5
 
+// replace github.com/webteleport/webteleport => ../webteleport
+
 require (
 	github.com/webteleport/auth v0.0.6
 	github.com/webteleport/utils v0.1.8
-	github.com/webteleport/webteleport v0.3.0
+	github.com/webteleport/webteleport v0.3.1
 )
 
 require (
