@@ -4,8 +4,8 @@ go 1.21.5
 
 require (
 	github.com/webteleport/auth v0.0.6
-	github.com/webteleport/utils v0.1.2
-	github.com/webteleport/webteleport v0.2.23
+	github.com/webteleport/utils v0.1.8
+	github.com/webteleport/webteleport v0.3.0
 )
 
 require (
@@ -18,6 +18,7 @@ require (
 	github.com/kataras/basicauth v0.0.3 // indirect
 	github.com/kr/pretty v0.3.1 // indirect
 	github.com/mattn/go-isatty v0.0.19 // indirect
+	github.com/miekg/dns v1.1.57 // indirect
 	github.com/onsi/ginkgo/v2 v2.12.0 // indirect
 	github.com/quic-go/qpack v0.4.0 // indirect
 	github.com/quic-go/qtls-go1-20 v0.4.1 // indirect
