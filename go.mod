@@ -6,8 +6,8 @@ go 1.21.6
 
 require (
 	github.com/webteleport/auth v0.0.6
-	github.com/webteleport/utils v0.2.2
-	github.com/webteleport/webteleport v0.3.3
+	github.com/webteleport/utils v0.2.5
+	github.com/webteleport/webteleport v0.3.8
 )
 
 require (
