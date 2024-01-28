@@ -5,6 +5,7 @@ import (
 	"log/slog"
 	"net/http"
 	"net/url"
+	"strings"
 	"time"
 
 	"github.com/webteleport/auth"
@@ -28,6 +29,13 @@ var DefaultGcRetry int64 = 3
 // - quiet: Do not log the status of the server (false for loggy)
 // - persist: Automatically restart the server when it becomes unresponsive (0 for disable)
 func Serve(relay string, handler http.Handler) error {
+	// call http.ListenAndServe if the relay looks like a bare port
+	// to connect to a local relay, use localhost:port instead
+	if strings.HasPrefix(relay, ":") {
+		slog.Info(fmt.Sprintf("💻 listening on %s", relay))
+		return http.ListenAndServe(relay, handler)
+	}
+
 	// Parse the relay URL and inject client info
 	u, err := createURLWithQueryParams(relay)
 	if err != nil {
