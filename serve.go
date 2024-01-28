@@ -32,6 +32,10 @@ func Serve(relay string, handler http.Handler) error {
 	// call http.ListenAndServe if the relay looks like a bare port
 	// to connect to a local relay, use localhost:port instead
 	if strings.HasPrefix(relay, ":") {
+		if cert, key := utils.EnvCert(""), utils.EnvKey(""); cert != "" && key != "" {
+			slog.Info(fmt.Sprintf("🔒 listening on %s", relay))
+			return http.ListenAndServeTLS(relay, cert, key, handler)
+		}
 		slog.Info(fmt.Sprintf("💻 listening on %s", relay))
 		return http.ListenAndServe(relay, handler)
 	}
