@@ -37,6 +37,10 @@ func Serve(relay string, handler http.Handler) error {
 			return http.ListenAndServeTLS(relay, cert, key, handler)
 		}
 		slog.Info(fmt.Sprintf("💻 listening on %s", relay))
+		parts := strings.SplitN(relay, "#", 2)
+		if len(parts) > 1 {
+			handler = auth.WithPassword(handler, parts[1])
+		}
 		return http.ListenAndServe(relay, handler)
 	}
 
