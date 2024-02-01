@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"log/slog"
+	"net"
 	"net/http"
 	"net/url"
 	"os"
@@ -14,7 +15,7 @@ import (
 )
 
 // listen with a timeout
-func listenWithTimeout(addr string, timeout time.Duration) (*webteleport.Listener, error) {
+func listenWithTimeout(addr string, timeout time.Duration) (net.Listener, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), timeout)
 	defer cancel()
 	return webteleport.Listen(ctx, addr)
@@ -40,8 +41,8 @@ func createURLWithQueryParams(stationURL string) (*url.URL, error) {
 }
 
 // logServerStatus logs the status of the server.
-func logServerStatus(ln *webteleport.Listener, u *url.URL) {
-	slog.Info(fmt.Sprintf("🛸 listening on %s", ln.ClickableURL()))
+func logServerStatus(ln net.Listener, u *url.URL) {
+	slog.Info(fmt.Sprintf("🛸 listening on %s", webteleport.ClickableURL(ln)))
 
 	if u.Fragment == "" {
 		slog.Info("🔓 publicly accessible without a password")
@@ -101,8 +102,8 @@ func parsePersistParam(query url.Values) (bool, error) {
 }
 
 // gc probes the remote endpoint status and closes the listener if it's unresponsive.
-func gc(ln *webteleport.Listener, interval time.Duration, limit int64) {
-	endpoint := ln.AsciiURL() + "/.well-known/health"
+func gc(ln net.Listener, interval time.Duration, limit int64) {
+	endpoint := webteleport.AsciiURL(ln) + "/.well-known/health"
 	client := &http.Client{
 		Timeout: interval,
 	}

@@ -7,7 +7,7 @@ go 1.21.6
 require (
 	github.com/webteleport/auth v0.0.6
 	github.com/webteleport/utils v0.2.5
-	github.com/webteleport/webteleport v0.3.8
+	github.com/webteleport/webteleport v0.4.1
 )
 
 require (
@@ -17,6 +17,8 @@ require (
 	github.com/google/pprof v0.0.0-20230821062121-407c9e7a662f // indirect
 	github.com/google/uuid v1.3.0 // indirect
 	github.com/gorilla/handlers v1.5.2 // indirect
+	github.com/gorilla/websocket v1.5.0 // indirect
+	github.com/hashicorp/yamux v0.1.1 // indirect
 	github.com/kataras/basicauth v0.0.3 // indirect
 	github.com/kr/pretty v0.3.1 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
@@ -35,4 +37,8 @@ require (
 	golang.org/x/text v0.14.0 // indirect
 	golang.org/x/tools v0.17.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
+	k0s.io v0.1.12 // indirect
+	k0s.io/pkg/dial v0.1.12 // indirect
+	k0s.io/pkg/wrap v0.1.12 // indirect
+	nhooyr.io/websocket v1.8.10 // indirect
 )
