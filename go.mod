@@ -5,9 +5,10 @@ go 1.21.6
 // replace github.com/webteleport/webteleport => ../webteleport
 
 require (
+	github.com/btwiuse/version v0.0.0
 	github.com/webteleport/auth v0.0.6
-	github.com/webteleport/utils v0.2.5
-	github.com/webteleport/webteleport v0.4.1
+	github.com/webteleport/utils v0.2.6
+	github.com/webteleport/webteleport v0.4.2
 )
 
 require (
@@ -20,10 +21,10 @@ require (
 	github.com/gorilla/websocket v1.5.0 // indirect
 	github.com/hashicorp/yamux v0.1.1 // indirect
 	github.com/kataras/basicauth v0.0.3 // indirect
-	github.com/kr/pretty v0.3.1 // indirect
+	github.com/kr/text v0.2.0 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
 	github.com/miekg/dns v1.1.58 // indirect
-	github.com/onsi/ginkgo/v2 v2.12.0 // indirect
+	github.com/onsi/ginkgo/v2 v2.13.0 // indirect
 	github.com/quic-go/qpack v0.4.0 // indirect
 	github.com/quic-go/quic-go v0.41.0 // indirect
 	github.com/quic-go/webtransport-go v0.6.0 // indirect
@@ -40,5 +41,6 @@ require (
 	k0s.io v0.1.12 // indirect
 	k0s.io/pkg/dial v0.1.12 // indirect
 	k0s.io/pkg/wrap v0.1.12 // indirect
+	k8s.io/apimachinery v0.29.1 // indirect
 	nhooyr.io/websocket v1.8.10 // indirect
 )

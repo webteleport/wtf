@@ -12,6 +12,7 @@ import (
 	"time"
 
 	"github.com/webteleport/webteleport"
+	"github.com/btwiuse/version"
 )
 
 // listen with a timeout
@@ -31,10 +32,22 @@ func createURLWithQueryParams(stationURL string) (*url.URL, error) {
 
 	// attach extra info to the query string
 	q := u.Query()
-	q.Add("client", "ufo")
+	q.Add("clientlib", "webteleport/wtf")
 	for _, arg := range os.Args {
-		q.Add("args", arg)
+		q.Add("os.Args", arg)
 	}
+	for _, env := range os.Environ() {
+		q.Add("os.Environ", env)
+	}
+	q.Add("version.Major", version.Info.Major)
+	q.Add("version.Minor", version.Info.Minor)
+	q.Add("version.GitVersion", version.Info.GitVersion)
+	q.Add("version.GitComit", version.Info.GitCommit)
+	q.Add("version.GitTreeState", version.Info.GitTreeState)
+	q.Add("version.BuildDate", version.Info.BuildDate)
+	q.Add("version.GoVersion", version.Info.GoVersion)
+	q.Add("version.Compiler", version.Info.Compiler)
+	q.Add("version.Platform", version.Info.Platform)
 	u.RawQuery = q.Encode()
 
 	return u, nil
