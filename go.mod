@@ -1,13 +1,13 @@
 module github.com/webteleport/wtf
 
-go 1.21.6
+go 1.22.1
 
 // replace github.com/webteleport/webteleport => ../webteleport
 
 require (
-	github.com/btwiuse/version v0.0.0
+	github.com/btwiuse/version v0.0.1
 	github.com/webteleport/auth v0.0.6
-	github.com/webteleport/utils v0.2.6
+	github.com/webteleport/utils v0.2.8
 	github.com/webteleport/webteleport v0.4.2
 )
 
@@ -41,6 +41,6 @@ require (
 	k0s.io v0.1.12 // indirect
 	k0s.io/pkg/dial v0.1.12 // indirect
 	k0s.io/pkg/wrap v0.1.12 // indirect
-	k8s.io/apimachinery v0.29.1 // indirect
+	k8s.io/apimachinery v0.29.2 // indirect
 	nhooyr.io/websocket v1.8.10 // indirect
 )
