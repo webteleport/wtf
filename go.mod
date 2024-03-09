@@ -6,12 +6,14 @@ go 1.22.1
 
 require (
 	github.com/btwiuse/version v0.0.1
-	github.com/webteleport/auth v0.0.7
+	github.com/webteleport/auth v0.0.8
 	github.com/webteleport/utils v0.2.8
 	github.com/webteleport/webteleport v0.4.2
 )
 
 require (
+	github.com/btwiuse/rng v0.0.0 // indirect
+	github.com/docker/docker v25.0.1+incompatible // indirect
 	github.com/ebi-yade/altsvc-go v0.1.1 // indirect
 	github.com/felixge/httpsnoop v1.0.3 // indirect
 	github.com/go-task/slim-sprig v0.0.0-20230315185526-52ccab3ef572 // indirect
