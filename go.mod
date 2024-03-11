@@ -8,7 +8,7 @@ require (
 	github.com/btwiuse/version v0.0.1
 	github.com/webteleport/auth v0.0.8
 	github.com/webteleport/utils v0.2.9
-	github.com/webteleport/webteleport v0.4.2
+	github.com/webteleport/webteleport v0.4.3
 )
 
 require (
@@ -20,7 +20,7 @@ require (
 	github.com/google/pprof v0.0.0-20230821062121-407c9e7a662f // indirect
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/gorilla/handlers v1.5.2 // indirect
-	github.com/gorilla/websocket v1.5.0 // indirect
+	github.com/gorilla/websocket v1.5.1 // indirect
 	github.com/hashicorp/yamux v0.1.1 // indirect
 	github.com/kataras/basicauth v0.0.3 // indirect
 	github.com/kr/text v0.2.0 // indirect
@@ -40,9 +40,9 @@ require (
 	golang.org/x/text v0.14.0 // indirect
 	golang.org/x/tools v0.18.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
-	k0s.io v0.1.12 // indirect
-	k0s.io/pkg/dial v0.1.12 // indirect
-	k0s.io/pkg/wrap v0.1.12 // indirect
+	k0s.io v0.1.15 // indirect
+	k0s.io/pkg/dial v0.1.15 // indirect
+	k0s.io/pkg/wrap v0.1.15 // indirect
 	k8s.io/apimachinery v0.29.2 // indirect
 	nhooyr.io/websocket v1.8.10 // indirect
 )

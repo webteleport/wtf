@@ -9,6 +9,7 @@ import (
 	"net/url"
 	"os"
 	"strconv"
+	"strings"
 	"time"
 
 	"github.com/webteleport/webteleport"
@@ -116,7 +117,13 @@ func parsePersistParam(query url.Values) (bool, error) {
 
 // gc probes the remote endpoint status and closes the listener if it's unresponsive.
 func gc(ln net.Listener, interval time.Duration, limit int64) {
-	endpoint := webteleport.AsciiURL(ln) + "/.well-known/health"
+	endpoint := webteleport.AsciiURL(ln)
+	if strings.HasSuffix(endpoint, "/") {
+		endpoint += ".well-known/health"
+	} else {
+		endpoint += "/.well-known/health"
+	}
+
 	client := &http.Client{
 		Timeout: interval,
 	}
