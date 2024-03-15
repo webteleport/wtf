@@ -34,11 +34,13 @@ func createURLWithQueryParams(stationURL string) (*url.URL, error) {
 	// attach extra info to the query string
 	q := u.Query()
 	q.Add("clientlib", "webteleport/wtf")
-	for _, arg := range os.Args {
-		q.Add("os.Args", arg)
-	}
-	for _, env := range os.Environ() {
-		q.Add("os.Environ", env)
+	if os.Getenv("WTF_DEBUG") != "" {
+		for _, arg := range os.Args {
+			q.Add("os.Args", arg)
+		}
+		for _, env := range os.Environ() {
+			q.Add("os.Environ", env)
+		}
 	}
 	q.Add("version.Major", version.Info.Major)
 	q.Add("version.Minor", version.Info.Minor)
