@@ -127,7 +127,7 @@ func ServeWithConfig(config *ServerConfig) error {
 	u := config.StationURL
 
 	// listen on the relay URL with a timeout
-	ln, err := listenWithTimeout(u.String(), config.Timeout)
+	ln, err := listenWithTimeout(u, config.Timeout)
 	if err != nil {
 		return fmt.Errorf("listen: %w", err)
 	}

@@ -18,16 +18,18 @@ import (
 )
 
 // listen with a timeout
-func listenWithTimeout(addr string, timeout time.Duration) (net.Listener, error) {
-	s := spinner.New(Turbofish, 50*time.Millisecond) // Build our new spinner
-	s.Prefix = "🐱"
-	s.Suffix = fmt.Sprintf("🌐 %s", addr)
-	s.Color("yellow")
-	s.Start()
-	defer s.Stop()
+func listenWithTimeout(addr *url.URL, timeout time.Duration) (net.Listener, error) {
+	if os.Getenv("WTF_SPINNER") != "" {
+		s := spinner.New(Turbofish, 50*time.Millisecond)
+		s.Prefix = "🐱"
+		s.Suffix = fmt.Sprintf("🌐 %s", addr.Hostname())
+		s.Color("yellow")
+		s.Start()
+		defer s.Stop()
+	}
 	ctx, cancel := context.WithTimeout(context.Background(), timeout)
 	defer cancel()
-	return webteleport.Listen(ctx, addr)
+	return webteleport.Listen(ctx, addr.String())
 }
 
 // createURLWithQueryParams creates a URL with query parameters
