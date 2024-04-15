@@ -9,7 +9,7 @@ require (
 	github.com/btwiuse/version v0.0.1
 	github.com/webteleport/auth v0.0.8
 	github.com/webteleport/utils v0.2.10
-	github.com/webteleport/webteleport v0.5.2
+	github.com/webteleport/webteleport v0.5.3
 )
 
 require (
