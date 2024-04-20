@@ -68,8 +68,8 @@ func createURLWithQueryParams(stationURL string) (*url.URL, error) {
 
 // logServerStatus logs the status of the server.
 func logServerStatus(ln net.Listener, u *url.URL) {
-	addr := ln.(net.Addr)
-	slog.Info(fmt.Sprintf("🛸 listening on %s://%s", addr.Network(), addr.String()))
+	endpoint := fmt.Sprintf("%s://%s", ln.Addr().Network(), ln.Addr().String())
+	slog.Info(fmt.Sprintf("🛸 listening on %s", endpoint))
 
 	if u.Fragment == "" {
 		slog.Info("🔓 publicly accessible without a password")
@@ -130,8 +130,7 @@ func parsePersistParam(query url.Values) (bool, error) {
 
 // gc probes the remote endpoint status and closes the listener if it's unresponsive.
 func gc(ln net.Listener, interval time.Duration, limit int64) {
-	addr := ln.(net.Addr)
-	endpoint := fmt.Sprintf("%s//%s", addr.Network(), addr.String())
+	endpoint := fmt.Sprintf("%s://%s", ln.Addr().Network(), ln.Addr().String())
 	if strings.HasSuffix(endpoint, "/") {
 		endpoint += ".well-known/health"
 	} else {
