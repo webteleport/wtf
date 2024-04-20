@@ -47,7 +47,7 @@ func Serve(relay string, handler http.Handler) error {
 	}
 
 	// Parse the relay URL and inject client info
-	u, err := createURLWithQueryParams(relay)
+	u, err := createURLWithQueryParams(utils.AsURL(relay))
 	if err != nil {
 		return err
 	}

@@ -8,8 +8,8 @@ require (
 	github.com/briandowns/spinner v1.23.0
 	github.com/btwiuse/version v0.0.1
 	github.com/webteleport/auth v0.0.8
-	github.com/webteleport/utils v0.2.13
-	github.com/webteleport/webteleport v0.5.13
+	github.com/webteleport/utils v0.2.14
+	github.com/webteleport/webteleport v0.5.14
 )
 
 require (
