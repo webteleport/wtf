@@ -2,6 +2,7 @@ package wtf
 
 import (
 	"context"
+	"crypto/tls"
 	"fmt"
 	"log/slog"
 	"net"
@@ -67,7 +68,8 @@ func createURLWithQueryParams(stationURL string) (*url.URL, error) {
 
 // logServerStatus logs the status of the server.
 func logServerStatus(ln net.Listener, u *url.URL) {
-	slog.Info(fmt.Sprintf("🛸 listening on %s", webteleport.ClickableURL(ln)))
+	addr := ln.(net.Addr)
+	slog.Info(fmt.Sprintf("🛸 listening on %s://%s", addr.Network(), addr.String()))
 
 	if u.Fragment == "" {
 		slog.Info("🔓 publicly accessible without a password")
@@ -128,7 +130,8 @@ func parsePersistParam(query url.Values) (bool, error) {
 
 // gc probes the remote endpoint status and closes the listener if it's unresponsive.
 func gc(ln net.Listener, interval time.Duration, limit int64) {
-	endpoint := webteleport.AsciiURL(ln)
+	addr := ln.(net.Addr)
+	endpoint := fmt.Sprintf("%s//%s", addr.Network(), addr.String())
 	if strings.HasSuffix(endpoint, "/") {
 		endpoint += ".well-known/health"
 	} else {
@@ -137,6 +140,12 @@ func gc(ln net.Listener, interval time.Duration, limit int64) {
 
 	client := &http.Client{
 		Timeout: interval,
+		Transport: &http.Transport{
+			Proxy: http.ProxyFromEnvironment,
+			TLSClientConfig: &tls.Config{
+				InsecureSkipVerify: true,
+			},
+		},
 	}
 
 	// trigger lazy certificate
