@@ -9,7 +9,7 @@ require (
 	github.com/btwiuse/version v0.0.1
 	github.com/webteleport/auth v0.0.8
 	github.com/webteleport/utils v0.2.14
-	github.com/webteleport/webteleport v0.5.14
+	github.com/webteleport/webteleport v0.5.16
 )
 
 require (
@@ -33,6 +33,7 @@ require (
 	github.com/quic-go/quic-go v0.42.0 // indirect
 	github.com/quic-go/webtransport-go v0.7.0 // indirect
 	github.com/rs/cors v1.10.1 // indirect
+	github.com/webteleport/transport v0.0.0 // indirect
 	go.uber.org/mock v0.4.0 // indirect
 	golang.org/x/crypto v0.22.0 // indirect
 	golang.org/x/exp v0.0.0-20240416160154-fe59bbe5cc7f // indirect

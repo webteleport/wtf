@@ -143,8 +143,13 @@ func ServeWithConfig(config *ServerConfig) error {
 	}
 
 	// close the listener when the server is unresponsive
-	if config.GcInterval > 0 {
-		go gc(ln, config.GcInterval, config.GcRetry)
+	switch u.Hostname() {
+	case "localhost", "127.0.0.1", "::1":
+		slog.Info(fmt.Sprintf("🛸 skipping healthcheck for %s", u.Hostname()))
+	default:
+		if config.GcInterval > 0 {
+			go gc(ln, config.GcInterval, config.GcRetry)
+		}
 	}
 
 	// attach default middlewares

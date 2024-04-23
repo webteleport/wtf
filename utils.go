@@ -131,10 +131,15 @@ func parsePersistParam(query url.Values) (bool, error) {
 // gc probes the remote endpoint status and closes the listener if it's unresponsive.
 func gc(ln net.Listener, interval time.Duration, limit int64) {
 	endpoint := fmt.Sprintf("%s://%s", ln.Addr().Network(), ln.Addr().String())
-	if strings.HasSuffix(endpoint, "/") {
-		endpoint += ".well-known/health"
-	} else {
-		endpoint += "/.well-known/health"
+	if !strings.HasSuffix(endpoint, "/") {
+		endpoint += "/"
+	}
+	endpoint += ".well-known/health"
+
+	_, err := url.Parse(endpoint)
+	if err != nil {
+		slog.Info(fmt.Sprintf("🛸 failed to parse endpoint: %v", err))
+		return
 	}
 
 	client := &http.Client{
