@@ -153,7 +153,7 @@ func gc(ln net.Listener, interval time.Duration, limit int64) {
 	}
 
 	// trigger lazy certificate
-	client.Get(endpoint)
+	client.Head(endpoint)
 
 	retry := limit
 	for {
@@ -164,7 +164,7 @@ func gc(ln net.Listener, interval time.Duration, limit int64) {
 		// Wait for either the task to complete or a timeout to occur
 		time.Sleep(interval)
 
-		resp, err := client.Get(endpoint)
+		resp, err := client.Head(endpoint)
 		// if request isn't successful, decrease retry
 		if err != nil {
 			retry -= 1
