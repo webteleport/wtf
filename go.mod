@@ -8,12 +8,13 @@ require (
 	github.com/briandowns/spinner v1.23.0
 	github.com/btwiuse/version v0.0.1
 	github.com/webteleport/auth v0.0.8
-	github.com/webteleport/utils v0.2.14
-	github.com/webteleport/webteleport v0.5.21
+	github.com/webteleport/utils v0.2.15
+	github.com/webteleport/webteleport v0.5.26
 )
 
 require (
 	github.com/btwiuse/rng v0.0.0 // indirect
+	github.com/btwiuse/wsconn v0.0.1 // indirect
 	github.com/docker/docker v25.0.1+incompatible // indirect
 	github.com/ebi-yade/altsvc-go v0.1.1 // indirect
 	github.com/fatih/color v1.7.0 // indirect
@@ -22,6 +23,7 @@ require (
 	github.com/google/pprof v0.0.0-20230821062121-407c9e7a662f // indirect
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/gorilla/handlers v1.5.2 // indirect
+	github.com/gorilla/websocket v1.5.1 // indirect
 	github.com/hashicorp/yamux v0.1.1 // indirect
 	github.com/kataras/basicauth v0.0.3 // indirect
 	github.com/kr/text v0.2.0 // indirect
