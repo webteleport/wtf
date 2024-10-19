@@ -6,9 +6,9 @@ go 1.23.2
 
 require (
 	github.com/btwiuse/version v0.0.1
-	github.com/webteleport/auth v0.0.8
+	github.com/webteleport/auth v0.0.9
 	github.com/webteleport/utils v0.2.16
-	github.com/webteleport/webteleport v0.5.33
+	github.com/webteleport/webteleport v0.5.34
 )
 
 require (
