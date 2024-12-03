@@ -16,7 +16,7 @@ import (
 var DefaultTimeout = 10 * time.Second
 
 // DefaultGcInterval is the default garbage collection interval for the WTF client.
-var DefaultGcInterval = 5 * time.Second
+var DefaultGcInterval = 0 * time.Second
 
 // DefaultGcRetry is the default garbage collection retry limit.
 var DefaultGcRetry int64 = 3
