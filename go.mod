@@ -7,8 +7,8 @@ go 1.23.2
 require (
 	github.com/btwiuse/version v0.0.1
 	github.com/webteleport/auth v0.0.9
-	github.com/webteleport/utils v0.2.16
-	github.com/webteleport/webteleport v0.5.36
+	github.com/webteleport/utils v0.2.17
+	github.com/webteleport/webteleport v0.5.38
 )
 
 require (
@@ -33,13 +33,13 @@ require (
 	github.com/quic-go/webtransport-go v0.8.1-0.20241018022711-4ac2c9250e66 // indirect
 	github.com/rs/cors v1.11.1 // indirect
 	go.uber.org/mock v0.4.0 // indirect
-	golang.org/x/crypto v0.28.0 // indirect
+	golang.org/x/crypto v0.30.0 // indirect
 	golang.org/x/exp v0.0.0-20241009180824-f66d83c29e7c // indirect
 	golang.org/x/mod v0.21.0 // indirect
-	golang.org/x/net v0.30.0 // indirect
-	golang.org/x/sync v0.8.0 // indirect
-	golang.org/x/sys v0.26.0 // indirect
-	golang.org/x/text v0.19.0 // indirect
+	golang.org/x/net v0.32.0 // indirect
+	golang.org/x/sync v0.10.0 // indirect
+	golang.org/x/sys v0.28.0 // indirect
+	golang.org/x/text v0.21.0 // indirect
 	golang.org/x/tools v0.26.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	k8s.io/apimachinery v0.29.2 // indirect
